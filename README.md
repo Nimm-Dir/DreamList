@@ -57,6 +57,7 @@ Aufgaben und Listen werden ausschliesslich lokal in einer JSON-Datei gespeichert
 - Listen, Aufgaben, Drag & Drop.
 - Eigene Farb-Templates.
 - Portable Windows-EXE via `electron-builder`.
+- Erstellt auf Windows 11 und auch nur da getestet
 
 ---
 
