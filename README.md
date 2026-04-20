@@ -36,68 +36,6 @@ Aufgaben und Listen werden ausschliesslich lokal in einer JSON-Datei gespeichert
 
 ---
 
-## Entwicklung
-
-### Voraussetzungen
-
-- Node.js 20 oder neuer
-- npm
-
-### Setup
-
-```bash
-npm install
-```
-
-### Dev-Modus starten
-
-```bash
-npm run dev
-```
-
-Startet Vite + Electron mit Hot-Module-Reload.
-
-### Build / Packaging
-
-| Befehl              | Ergebnis                                                                 |
-| ------------------- | ------------------------------------------------------------------------ |
-| `npm run build`     | TypeScript-Check + Vite-Produktions-Build nach `dist/` und `dist-electron/` |
-| `npm run pack`      | Unpacked-App unter `release/win-unpacked/` (zum Testen)                  |
-| `npm run dist`      | Vollstaendiger Electron-Builder-Lauf gemaess `build`-Sektion in `package.json` |
-| `npm run dist:win`  | Portable Windows-EXE unter `release/DreamList-<version>-portable.exe`    |
-
----
-
-## Projektstruktur
-
-```
-DreamList/
-├── electron/              Electron-Hauptprozess, Preload, Storage (IPC)
-│   ├── main.ts
-│   ├── preload.ts
-│   └── storage.ts
-├── src/
-│   ├── components/        React-Komponenten (Sidebar, TaskInput, ScheduledTree, ThemeModal, ConfirmDialog, …)
-│   ├── store/useStore.ts  Zustand-Store: Projekte, Aufgaben, Settings, Themes, Hydration, Persistenz
-│   ├── theme/             Theme-Presets und CSS-Variablen-Applikation
-│   ├── styles/globals.css Basis-Styles und CSS-Variablen
-│   ├── types.ts           Gemeinsame Typen
-│   └── App.tsx            Root-Layout mit DnD-Context und Split-Pane
-├── Logo.ico / Logo.png    App-Icon
-├── package.json           Scripts + Electron-Builder-Konfiguration
-└── vite.config.ts         Vite-Konfiguration mit Electron-Plugins
-```
-
----
-
-## Datenhaltung
-
-- Alles laeuft lokal. Die App schreibt ueber IPC (`dreamlist.save`) in eine einzelne JSON-Datei im User-Data-Verzeichnis.
-- Schreibvorgaenge sind leicht throttled (150 ms), damit schnelle Aenderungen nicht zu vielen Disk-Writes fuehren.
-- Beim Start wird das File geladen; fehlt es, wird eine Standardliste `Allgemein` erzeugt.
-
----
-
 ## Tastenkuerzel
 
 | Bereich              | Taste              | Aktion                                 |
@@ -107,6 +45,7 @@ DreamList/
 | Sidebar (Liste)      | Doppelklick        | Liste umbenennen                       |
 | Sidebar (Liste)      | Ziehen             | Reihenfolge aendern                    |
 | Modale Dialoge       | `Enter` / `Escape` | Bestaetigen / Abbrechen                |
+| Sidebar              |                    | Per Pfeil ein- / ausklappen            |
 
 ---
 
@@ -117,7 +56,6 @@ DreamList/
 - Erste vollstaendige Version.
 - Listen, Aufgaben, Drag & Drop.
 - Eigene Farb-Templates.
-- In-App-Bestaetigungsdialog statt nativem `confirm()` (behebt Fokus-Probleme in Electron).
 - Portable Windows-EXE via `electron-builder`.
 
 ---
