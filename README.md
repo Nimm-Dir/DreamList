@@ -26,7 +26,7 @@ Aufgaben und Listen werden ausschliesslich lokal in einer JSON-Datei gespeichert
 
 ## Schnellstart (Endanwender)
 
-1. `release/DreamList-1.0.0-portable.exe` herunterladen.
+1. `release/DreamList-1.0.1-portable.exe` herunterladen.
 2. Datei starten — keine Installation, keine Admin-Rechte noetig.
 3. Deine Daten liegen unter:
    ```
@@ -50,6 +50,10 @@ Aufgaben und Listen werden ausschliesslich lokal in einer JSON-Datei gespeichert
 ---
 
 ## Versionshinweise
+
+### 1.0.1
+
+- Undo / Redo hinzugefügt
 
 ### 1.0.0
 
